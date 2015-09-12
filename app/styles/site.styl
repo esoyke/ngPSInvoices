@@ -1,0 +1,112 @@
+
+colorPscuGreen = #bfd730
+colorPscuPaleBlue = #BFD7DF
+colorPscuLightBlue = #559CB5
+colorPscuDarkBlue = #00549F
+//colorTableAlternate = #F0F0F6
+colorTablePaleBlue = #e6EEEE
+
+body
+  padding 10px
+  background-color colorPscuPaleBlue
+
+h1,h2
+  color colorPscuDarkBlue
+
+form
+  label
+    color colorPscuDarkBlue
+
+.modal-title
+  color colorPscuDarkBlue
+  text-align center
+
+.btnDelete
+  height 18px
+  width 18px
+  &:hover
+    background-color black
+    border-radius 3px
+    border-color black
+
+#btnInvoice
+  background-color colorPscuGreen
+  color colorPscuDarkBlue
+  margin-top 20px
+  margin-bottom 20px
+
+.majorSection
+  background-color colorPscuLightBlue
+  width auto
+  border-radius 10px
+  padding 8px
+
+.minorSection
+  background-color colorPscuPaleBlue
+  width auto
+  border-radius 8px
+  padding 8px
+
+.modalInvoice
+  input, textArea
+    border-radius 3px
+  textArea
+    //soften the black a bit, as textArea's border will differ from text input
+    border-color #888888
+
+
+table
+  border 0px
+  &.tablesorter
+    font-family arial
+    margin 10px 0pt 15px
+    font-size 12pt
+    width 100%
+    text-align left
+    thead
+      tr
+        .header
+          font-size 14pt
+          background-image url(../themes/blue/bg.gif)
+          background-size 16px 13px
+          background-repeat no-repeat
+          background-position center right
+          cursor pointer
+        .headerSortUp
+          background-image url(../themes/blue/asc.gif)
+          background-size 17px 10px
+        .headerSortDown
+          background-image url(../themes/blue/desc.gif)
+          background-size 17px 10px
+    tbody
+      td
+        padding 4px
+        background-color white
+        vertical-align top
+      tr
+        cursor pointer
+        &:hover
+          color colorPscuDarkBlue !important
+          font-size 125%
+          //font-weight bold
+        &.odd
+          td
+            background-color colorPscuPaleBlue
+
+table.tablesorter thead tr th
+  background-color colorTablePaleBlue
+  border 1px solid #FFF
+  font-size 14pt
+  padding 4px
+
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp
+  background-color colorPscuLightBlue
+
+
+.marginRight5
+  margin-right 5px
+.marginRight10
+  margin-right 10px
+.centered
+  text-align:center
+
