@@ -1,7 +1,7 @@
 /node_modules
-/dist
 /.tmp
 /.sass-cache
 /bower_components
 /.idea
 .idea
+#don't include /dist or this will not deploy in Heroku!!

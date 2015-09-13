@@ -1,4 +1,5 @@
 'use strict';
+//require('newrelic');
 
 /**
  * @ngdoc overview
@@ -33,3 +34,8 @@ angular
         redirectTo: '/'
       });
   });
+
+//var Logger = require('le_node');
+//var log = new Logger({
+//  token:'3d37752e-0e40-47c5-bd7f-1f4b83d6d94e'
+//});
