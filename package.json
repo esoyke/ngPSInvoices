@@ -37,6 +37,8 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "le_node": "~1.1.0"
+    "le_node": "~1.1.0",
+    "gzippo": "~0.2.0",
+    "express": "~4.13.3"
   }
 }
