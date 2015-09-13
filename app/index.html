@@ -1,93 +1,26 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-  </head>
-  <body ng-app="ngPsinvoicesApp">
-    <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-    <!-- Add your site or application content here -->
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-
-            <a class="navbar-brand" href="#/">ngPsinvoices</a>
-          </div>
-
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-    <div ng-view=""></div>
-    </div>
-
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-    </div>
-
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
-
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <!-- endbuild -->
-</body>
-</html>
+<!--Created by esoyke on 9/12/15.--><!--Created by esoyke on 9/4/15.
+Simple mockup of branded invoice creator
+Just using hard-coded mock data, would convert to use Angular most likely.--><!DOCTYPE html><html><head><title>Professional Services Invoice System</title><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"><link href="styles/site.css" rel="stylesheet"><script src="https://code.jquery.com/jquery-2.1.4.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script><!--script(src="https://cdnjs.com/libraries/jquery.tablesorter")--><script src="scripts/jquery.tablesorter.min.js"></script></head></html><body><h2>Professional Services Invoices</h2><button id="btnInvoice" type="button" data-toggle="modal" data-target="#modalNewInvoice" class="btn btn-default btn-lg"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> New Invoice</button><div class="majorSection"><div class="minorSection"><table id="tableInvoices" class="table table-striped table-hover tablesorter"><thead><th width="10%">Date</th><th width="15%">CU</th><th width="38%">Project</th><th width="17%">Delivery Manager</th><th width="10%" class="centered">Delete</th></thead><tbody><tr data-toggle="modal" data-target="#modalExistingInvoice" class="tr"><td>3/5/2015</td><td>SFCU</td><td>Schools Interface</td><td>SKelley</td><td class="centered"><button data-toggle="modal" data-target="#modalConfirmDelete" class="btnDelete"></button></td></tr><tr data-toggle="modal" data-target="#modalExistingInvoice" class="tr"><td>5/22/2015</td><td>VACU</td><td>Interface enhancements</td><td>DSoldwedel</td><td class="centered"><button data-toggle="modal" data-target="#modalConfirmDelete" class="btnDelete"></button></td></tr><tr data-toggle="modal" data-target="#modalExistingInvoice" class="tr"><td>7/15/2015</td><td>PSCU</td><td>Plastics inventory enhancements</td><td>DSoldwedel</td><td class="centered"><button data-toggle="modal" data-target="#modalConfirmDelete" class="btnDelete"></button></td></tr><tr data-toggle="modal" data-target="#modalExistingInvoice" class="tr"><td>6/15/2015</td><td>CEFCU</td><td>Monetize Alerts</td><td>SKelley</td><td class="centered"><button data-toggle="modal" data-target="#modalConfirmDelete" class="btnDelete"></button></td></tr><tr data-toggle="modal" data-target="#modalExistingInvoice" class="tr"><td>8/15/2015</td><td>PSCU</td><td>MYMM Billing</td><td>DSoldwedel</td><td class="centered"><button data-toggle="modal" data-target="#modalConfirmDelete" class="btnDelete"></button></td></tr><tr data-toggle="modal" data-target="#modalExistingInvoice" class="tr"><td>7/27/2015</td><td>PSCU</td><td>Billpay service conversion</td><td>DSoldwedel</td><td class="centered"><button data-toggle="modal" data-target="#modalConfirmDelete" class="btnDelete"></button></td></tr></tbody></table></div></div><div id="modalNewInvoice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modalInvoice modal fade"><div role="document" class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button><!--h4#myModalLabel.modal-title New Invoice--><h3 class="modal-title">New Invoice</h3></div><div class="modal-body"><form class="form-vertical"><div class="form-group"><label for="projectName">Project:</label><input id="projectName" type="text" class="form-control"></div><div class="form-group"><label for="projectDate">Date:</label><input id="projectDate" type="date" class="form-control"></div><div class="form-group"><label for="cuName">CU Name:</label><input id="cuName" type="text" class="form-control"></div><div class="form-group"><label for="cuName">ID:</label><input id="cuID" type="text" class="form-control"></div><div class="form-group"><label for="manager">Delivery Manager:</label><input id="manager" type="text" class="form-control"></div><div class="form-group"><label for="desc">Description:</label><textarea id="descent" type="text" rows="2" class="form-control"></textarea></div><div class="form-group"><label for="hours">Billable hours:</label><input id="hours" type="text" class="form-control"></div><div class="form-group"><label for="invoiceAmount" style="padding-top: 7px">Invoice amount:</label><div class="input-group col-md-7 col-sm-4"><span class="input-group-addon">$</span><input type="text" class="form-control"><span class="input-group-addon">.00</span></div></div></form></div><div class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-default">Close</button><button type="button" class="btn btn-primary">Save</button></div></div></div></div><div id="modalExistingInvoice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modalInvoice modal fade"><div role="document" class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button><h3 id="myModalLabel" class="modal-title">Schools Interface</h3></div><div class="modal-body"><form class="form-vertical"><div class="form-group"><label for="projectDate">Date:</label><input id="projectDate" type="date" value="2015-03-15" class="form-control"></div><div class="form-group"><label for="cuName">CU Name:</label><input id="cuName" type="text" value="SFCU" class="form-control"></div><div class="form-group"><label for="cuName">ID:</label><input id="cuID" type="text" value="1283" class="form-control"></div><div class="form-group"><label for="manager">Delivery Manager:</label><input id="manager" type="text" value="SKelley" class="form-control"></div><div class="form-group"><label for="desc">Description:</label><textarea id="descent" type="text" rows="3" value="Blah blah foo bar" class="form-control">Create custom interface to FDR via Data Exchange to replace Evolve usage for tellers</textarea></div><div class="form-group"><label for="hours">Billable hours:</label><input id="hours" type="text" value="700" class="form-control"></div><div class="form-group"><label for="invoiceAmount" style="padding-top: 7px">Invoice amount:</label><div class="input-group col-md-7 col-sm-4"><span class="input-group-addon">$</span><input type="text" value="12,000" class="form-control"><span class="input-group-addon">.00</span></div></div></form></div><div class="modal-footer"><!--button.btn.btn-default(type='button', data-dismiss='modal') X Delete--><button type="button" data-dismiss="modal" class="btn btn-default">Close</button><button type="button" class="btn btn-primary">Save changes</button></div></div></div></div><div id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade"><div role="document" class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button><h4 id="myModalLabel" class="modal-title">Delete - Schools Interface</h4></div><div class="modal-body"><h3>Are you sure?</h3></div><div class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-default">Nevermind</button><button type="submit" class="btn btn-danger">Delete</button></div></div></div></div><!-- All the JS is read from Jade as-is if you include a "script." prior--><!----><script>// function to get current date
+Date.prototype.toDateInputValue = (function () {
+   var local = new Date(this);
+   local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+   return local.toJSON().slice(0, 10);
+});
+//pre-populate current date for new invoices
+$(document).ready(function () {
+   $('#projectDate').val(new Date().toDateInputValue());
+});
+// delete confirmation
+$('.btnDelete').click(function (e) {
+   //override showing the existing invoice modal (at tr level)
+   e.preventDefault();
+   e.stopPropagation();
+   $('#modalConfirmDelete').modal('show');
+});
+// for table sorting
+$(function () {
+   // [2,0] indicates init sort on 3rd column ascending
+   $("#tableInvoices").tablesorter({sortList: [[2, 0]], widgets: ['zebra'], headers: {4: {sorter: false}}});
+});
+//temp show at startup until I am happy with layout
+//$('#modalNewInvoice').modal('show');</script></body>
