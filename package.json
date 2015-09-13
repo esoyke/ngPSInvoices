@@ -34,11 +34,13 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "postinstall" : "bower cache clean && bower install"
   },
   "dependencies": {
     "le_node": "~1.1.0",
     "gzippo": "~0.2.0",
-    "express": "~4.13.3"
+    "express": "~4.13.3",
+    "bower": "~1.5.2"
   }
 }
