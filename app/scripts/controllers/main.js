@@ -1,3 +1,4 @@
+(function () {
 'use strict';
 
 /**
@@ -8,10 +9,14 @@
  * Controller of the ngPsinvoicesApp
  */
 angular.module('ngPsinvoicesApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MainCtrl', ['invoiceResource', MainCtrl]);
+
+  function MainCtrl(invoiceResource) {
+
+    var main = this;
+    invoiceResource.query(function (data) {
+      main.invoices = data;
+    });
+  }
+
+}());

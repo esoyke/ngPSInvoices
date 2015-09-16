@@ -10,17 +10,14 @@ html
       title Professional Services Invoice System
       link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css", rel="stylesheet")
       link(href="styles/site.css", rel="stylesheet")
-      script(src="https://code.jquery.com/jquery-2.1.4.min.js")
-      script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
-      //script(src="https://cdnjs.com/libraries/jquery.tablesorter")
-      script(src="scripts/jquery.tablesorter.min.js")
-body
+
+body(ng-app="ngPsinvoicesApp")
    h2 Professional Services Invoices
    button.btn.btn-default.btn-lg(id="btnInvoice" type='button' data-toggle="modal" data-target="#modalNewInvoice")
       span.glyphicon.glyphicon-plus(aria-hidden='true')
       |  New Invoice
-   div.majorSection
-      div.minorSection
+   div.majorSection(ng-controller="MainCtrl as main")
+       div.minorSection
          table.table.table-striped.table-hover.tablesorter(id="tableInvoices")
             thead
                th(width="10%") Date
@@ -29,6 +26,16 @@ body
                th(width="17%") Delivery Manager
                th.centered(width="10%") Delete
             tbody
+              tr(ng-repeat="invoice in main.invoices" data-toggle="modal" data-target="#modalExistingInvoice")
+                td {{invoice.invoiceDate}}
+                td {{invoice.clientName}}
+                td {{invoice.invoiceName}}
+                td {{invoice.manager}}
+                td.centered
+                  button.btnDelete(data-toggle="modal" data-target="#modalConfirmDelete")
+
+
+         //
                tr.tr(data-toggle="modal" data-target="#modalExistingInvoice")
                   td 3/5/2015
                   td SFCU
@@ -71,6 +78,9 @@ body
                   td DSoldwedel
                   td.centered
                      button.btnDelete(data-toggle="modal" data-target="#modalConfirmDelete")
+
+
+
    #modalNewInvoice.modalInvoice.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
       .modal-dialog(role='document')
          .modal-content
@@ -99,9 +109,6 @@ body
                   div.form-group
                      label(for="desc") Description:
                      textarea.form-control(id="descent" type="text" rows=2)
-                  div.form-group
-                     label(for="hours") Billable hours:
-                     input.form-control(id="hours" type="text")
                   div.form-group
                      label(for="invoiceAmount" style="padding-top: 7px") Invoice amount:
                      div.input-group.col-md-7.col-sm-4
@@ -137,9 +144,6 @@ body
                      textarea.form-control(id="descent" type="text" rows=3 value="Blah blah foo bar")
                         | Create custom interface to FDR via Data Exchange to replace Evolve usage for tellers
                   div.form-group
-                     label(for="hours") Billable hours:
-                     input.form-control(id="hours" type="text" value="700")
-                  div.form-group
                      label(for="invoiceAmount" style="padding-top: 7px") Invoice amount:
                      div.input-group.col-md-7.col-sm-4
                         span.input-group-addon $
@@ -161,6 +165,34 @@ body
             .modal-footer
                button.btn.btn-default(type='button', data-dismiss='modal') Nevermind
                button.btn.btn-danger(type='submit') Delete
+
+
+   <!-- build:js(.) scripts/vendor.js -->
+   <!-- bower:js -->
+   script(src="https://code.jquery.com/jquery-2.1.4.min.js")
+   script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
+   //script(src="https://cdnjs.com/libraries/jquery.tablesorter")
+   script(src="scripts/jquery.tablesorter.min.js")
+   script(src="bower_components/jquery/dist/jquery.js")
+   script(src="bower_components/angular/angular.js")
+   script(src="bower_components/bootstrap/dist/js/bootstrap.js")
+   script(src="bower_components/angular-animate/angular-animate.js")
+   script(src="bower_components/angular-cookies/angular-cookies.js")
+   script(src="bower_components/angular-mocks/angular-mocks.js")
+   script(src="bower_components/angular-resource/angular-resource.js")
+   script(src="bower_components/angular-route/angular-route.js")
+   script(src="bower_components/angular-sanitize/angular-sanitize.js")
+   script(src="bower_components/angular-touch/angular-touch.js")
+   <!-- endbower -->
+   <!-- endbuild -->
+
+   script(src="scripts/app.js")
+   script(src="scripts/controllers/main.js")
+   script(src="scripts/services/invoiceResource.js")
+   script(src="scripts/services/invoiceResourceMock.js")
+   //script(src="../common/services/common.services.js")
+
+
    // All the JS is read from Jade as-is if you include a "script." prior
    //
    script.
@@ -182,10 +214,12 @@ body
          $('#modalConfirmDelete').modal('show');
       });
       // for table sorting
-      $(function () {
+      //temp comment until I determine why it can't find tablesorter
+      /*$(function () {
          // [2,0] indicates init sort on 3rd column ascending
          $("#tableInvoices").tablesorter({sortList: [[2, 0]], widgets: ['zebra'], headers: {4: {sorter: false}}});
-      });
+      });*/
+
       //temp show at startup until I am happy with layout
       //$('#modalNewInvoice').modal('show');
 
