@@ -172,7 +172,6 @@ body(ng-app="ngPsinvoicesApp")
    script(src="https://code.jquery.com/jquery-2.1.4.min.js")
    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
    //script(src="https://cdnjs.com/libraries/jquery.tablesorter")
-   script(src="scripts/jquery.tablesorter.min.js")
    script(src="bower_components/jquery/dist/jquery.js")
    script(src="bower_components/angular/angular.js")
    script(src="bower_components/bootstrap/dist/js/bootstrap.js")
@@ -186,12 +185,13 @@ body(ng-app="ngPsinvoicesApp")
    <!-- endbower -->
    <!-- endbuild -->
 
+
    script(src="scripts/app.js")
    script(src="scripts/controllers/main.js")
    script(src="scripts/services/invoiceResource.js")
    script(src="scripts/services/invoiceResourceMock.js")
    //script(src="../common/services/common.services.js")
-
+   script(src="scripts/jquery.tablesorter.min.js")
 
    // All the JS is read from Jade as-is if you include a "script." prior
    //
@@ -214,11 +214,21 @@ body(ng-app="ngPsinvoicesApp")
          $('#modalConfirmDelete').modal('show');
       });
       // for table sorting
-      //temp comment until I determine why it can't find tablesorter
       /*$(function () {
-         // [2,0] indicates init sort on 3rd column ascending
+        $("#tableInvoices").tablesorter();
+         if ($("table#tableInvoices tbody tr").length > 0)
          $("#tableInvoices").tablesorter({sortList: [[2, 0]], widgets: ['zebra'], headers: {4: {sorter: false}}});
       });*/
+
+      // Init jquery tablesorter- here [2,0] indicates init sort on 3rd column ascending
+      //
+      // After converting to angular-mocks, the tablesorter was failing, presumably because there wasn't data initially there
+      // was only able to get it to work by delaying the init a moment. This is OK if the retrieval is fast, will need
+      // to see if this works when hitting a DB or other slower resource
+      setTimeout(function() {
+        //$('#tableInvoices').tablesorter();
+        $("#tableInvoices").tablesorter({sortList: [[2, 0]], widgets: ['zebra'], headers: {4: {sorter: false}}});
+      }, 1000);
 
       //temp show at startup until I am happy with layout
       //$('#modalNewInvoice').modal('show');
