@@ -34,9 +34,11 @@
       <file leaf-file-name="index.jade" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/index.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9034335">
-              <caret line="98" column="69" selection-start-line="98" selection-start-column="69" selection-end-line="98" selection-end-column="69" />
-              <folding />
+            <state vertical-scroll-proportion="0.5332618">
+              <caret line="211" column="96" selection-start-line="211" selection-start-column="96" selection-end-line="211" selection-end-column="96" />
+              <folding>
+                <element signature="e#1969#3963#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -558,9 +560,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9034335">
-          <caret line="98" column="69" selection-start-line="98" selection-start-column="69" selection-end-line="98" selection-end-column="69" />
-          <folding />
+        <state vertical-scroll-proportion="0.5332618">
+          <caret line="211" column="96" selection-start-line="211" selection-start-column="96" selection-end-line="211" selection-end-column="96" />
+          <folding>
+            <element signature="e#1969#3963#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

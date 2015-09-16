@@ -26,11 +26,14 @@ body(ng-app="ngPsinvoicesApp")
                th(width="17%") Delivery Manager
                th.centered(width="10%") Delete
             tbody
-              tr(ng-repeat="invoice in main.invoices" data-toggle="modal" data-target="#modalExistingInvoice")
-                td {{invoice.invoiceDate}}
-                td {{invoice.clientName}}
-                td {{invoice.invoiceName}}
-                td {{invoice.manager}}
+              // when I changed to use ng, the stop propagation of tr was no longer working, put the data-target
+              // on the td level instead to avoid the problem when clicking Delete
+              //tr(ng-repeat="invoice in main.invoices" data-toggle="modal" data-target="#modalExistingInvoice")
+              tr(ng-repeat="invoice in main.invoices")
+                td(data-toggle="modal" data-target="#modalExistingInvoice") {{invoice.invoiceDate}}
+                td(data-toggle="modal" data-target="#modalExistingInvoice") {{invoice.clientName}}
+                td(data-toggle="modal" data-target="#modalExistingInvoice") {{invoice.invoiceName}}
+                td(data-toggle="modal" data-target="#modalExistingInvoice") {{invoice.manager}}
                 td.centered
                   button.btnDelete(data-toggle="modal" data-target="#modalConfirmDelete")
 
@@ -206,13 +209,15 @@ body(ng-app="ngPsinvoicesApp")
       $(document).ready(function () {
          $('#projectDate').val(new Date().toDateInputValue());
       });
-      // delete confirmation
+      // delete confirmation - no longer used since I had to move data event to td instead of tr
+      /*
       $('.btnDelete').click(function (e) {
          //override showing the existing invoice modal (at tr level)
          e.preventDefault();
          e.stopPropagation();
          $('#modalConfirmDelete').modal('show');
       });
+      */
       // for table sorting
       /*$(function () {
         $("#tableInvoices").tablesorter();
