@@ -32,11 +32,11 @@ body(ng-app="ngPsinvoicesApp" ng-controller="MainCtrl as main")
               // on the td level instead to avoid the problem when clicking Delete
               //tr(ng-repeat="invoice in main.invoices" data-toggle="modal" data-target="#modalExistingInvoice")
               tr(ng-repeat="invoice in main.invoices")
-                td(data-toggle="modal" data-target="#modalExistingInvoice") {{invoice.invoiceDate}}
-                td(data-toggle="modal" data-target="#modalExistingInvoice") {{invoice.clientName}}
+                td(ng-click="main.existingInvoiceModal(invoice)") {{invoice.invoiceDate}}
+                td(ng-click="main.existingInvoiceModal(invoice)") {{invoice.clientName}}
                 //td(data-toggle="modal" data-target="#modalExistingInvoice") {{invoice.invoiceName}}
                 td(ng-click="main.existingInvoiceModal(invoice)") {{invoice.invoiceName}}
-                td(data-toggle="modal" data-target="#modalExistingInvoice") {{invoice.manager}}
+                td(ng-click="main.existingInvoiceModal(invoice)") {{invoice.manager}}
                 td.centered
                   button.btnDelete(data-toggle="modal" data-target="#modalConfirmDelete")
 
@@ -273,7 +273,6 @@ body(ng-app="ngPsinvoicesApp" ng-controller="MainCtrl as main")
     script(src="scripts/app.js")
     script(src="scripts/controllers/main.js")
     script(src="scripts/controllers/invoiceCtrl.js")
-    script(src="scripts/services/invoiceExistingModalService.js")
     script(src="scripts/services/invoiceResource.js")
     script(src="scripts/services/invoiceResourceMock.js")
     script(src="scripts/jquery.tablesorter.min.js")

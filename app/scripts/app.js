@@ -34,10 +34,6 @@
               controller: 'AboutCtrl',
               controllerAs: 'about'
             })
-            .when('views/invoiceExisting.html', {
-                templateUrl: 'views/invoiceExisting.html',
-                controller: 'MainCtrl'
-            })
             .otherwise({
               redirectTo: '/'
             });
