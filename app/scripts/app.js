@@ -18,7 +18,9 @@
         'ngRoute',
         'ngSanitize',
         'ngTouch',
-        'invoiceResourceMock'
+        'invoiceResourceMock',
+        'ui.bootstrap' //using this for modal
+        //'invoiceExistingModalService'
       ])
       .config(function ($routeProvider) {
         $routeProvider
@@ -31,6 +33,10 @@
               templateUrl: 'views/about.html',
               controller: 'AboutCtrl',
               controllerAs: 'about'
+            })
+            .when('views/invoiceExisting.html', {
+                templateUrl: 'views/invoiceExisting.html',
+                controller: 'MainCtrl'
             })
             .otherwise({
               redirectTo: '/'

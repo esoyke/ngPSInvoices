@@ -11,12 +11,14 @@ html
       link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css", rel="stylesheet")
       link(href="styles/site.css", rel="stylesheet")
 
-body(ng-app="ngPsinvoicesApp")
-   h2 Professional Services Invoices
-   button.btn.btn-default.btn-lg(id="btnInvoice" type='button' data-toggle="modal" data-target="#modalNewInvoice")
+body(ng-app="ngPsinvoicesApp" ng-controller="MainCtrl as main")
+    h2 Professional Services Invoices
+    //button.btn.btn-default.btn-lg(id="btnInvoice" type='button' data-toggle="modal" data-target="#modalNewInvoice")
+    button.btn.btn-default.btn-lg(id="btnInvoice" type='button' ng-click="main.newInvoiceModal()")
       span.glyphicon.glyphicon-plus(aria-hidden='true')
       |  New Invoice
-   div.majorSection(ng-controller="MainCtrl as main")
+     //div.majorSection(ng-controller="MainCtrl as main")
+    div.majorSection
        div.minorSection
          table.table.table-striped.table-hover.tablesorter(id="tableInvoices")
             thead
@@ -32,7 +34,8 @@ body(ng-app="ngPsinvoicesApp")
               tr(ng-repeat="invoice in main.invoices")
                 td(data-toggle="modal" data-target="#modalExistingInvoice") {{invoice.invoiceDate}}
                 td(data-toggle="modal" data-target="#modalExistingInvoice") {{invoice.clientName}}
-                td(data-toggle="modal" data-target="#modalExistingInvoice") {{invoice.invoiceName}}
+                //td(data-toggle="modal" data-target="#modalExistingInvoice") {{invoice.invoiceName}}
+                td(ng-click="main.existingInvoiceModal(invoice)") {{invoice.invoiceName}}
                 td(data-toggle="modal" data-target="#modalExistingInvoice") {{invoice.manager}}
                 td.centered
                   button.btnDelete(data-toggle="modal" data-target="#modalConfirmDelete")
@@ -84,7 +87,7 @@ body(ng-app="ngPsinvoicesApp")
 
 
 
-   #modalNewInvoice.modalInvoice.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+    #modalNewInvoice.modalInvoice.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
       .modal-dialog(role='document')
          .modal-content
             .modal-header
@@ -121,7 +124,9 @@ body(ng-app="ngPsinvoicesApp")
             .modal-footer
                button.btn.btn-default(type='button', data-dismiss='modal') Close
                button.btn.btn-primary(type='button') Save
-   #modalExistingInvoice.modalInvoice.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+
+
+    #modalExistingInvoice.modalInvoice.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
       .modal-dialog(role='document')
          .modal-content
             .modal-header
@@ -156,7 +161,9 @@ body(ng-app="ngPsinvoicesApp")
                //button.btn.btn-default(type='button', data-dismiss='modal') X Delete
                button.btn.btn-default(type='button', data-dismiss='modal') Close
                button.btn.btn-primary(type='button') Save changes
-   #modalConfirmDelete.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+
+
+    #modalConfirmDelete.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
       .modal-dialog(role='document')
          .modal-content
             .modal-header
@@ -170,35 +177,110 @@ body(ng-app="ngPsinvoicesApp")
                button.btn.btn-danger(type='submit') Delete
 
 
-   <!-- build:js(.) scripts/vendor.js -->
-   <!-- bower:js -->
-   script(src="https://code.jquery.com/jquery-2.1.4.min.js")
-   script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
-   //script(src="https://cdnjs.com/libraries/jquery.tablesorter")
-   script(src="bower_components/jquery/dist/jquery.js")
-   script(src="bower_components/angular/angular.js")
-   script(src="bower_components/bootstrap/dist/js/bootstrap.js")
-   script(src="bower_components/angular-animate/angular-animate.js")
-   script(src="bower_components/angular-cookies/angular-cookies.js")
-   script(src="bower_components/angular-mocks/angular-mocks.js")
-   script(src="bower_components/angular-resource/angular-resource.js")
-   script(src="bower_components/angular-route/angular-route.js")
-   script(src="bower_components/angular-sanitize/angular-sanitize.js")
-   script(src="bower_components/angular-touch/angular-touch.js")
-   <!-- endbower -->
-   <!-- endbuild -->
+    script(type="text/ng-template" id="invoiceNewModal.html")
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') &times;
+        h3#myModalLabel.modal-title New Invoice (Unsaved)
+      .modal-body
+        form.form-vertical
+          div.form-group
+            label(for="projectName") Project:
+            input.form-control(id="projectName" type="text")
+          div.form-group
+            label(for="projectDate") Date:
+            input.form-control(id="projectDate" type="date" value="{{invoice.invoiceDate}}")
+            // TODO- why is it not formatting existing dates as yyyy-MM-dd ?
+          div.form-group
+            label(for="cuName") CU Name:
+            input.form-control(id="cuName" type="text" value="{{invoice.clientName}}")
+          div.form-group
+            label(for="cuName") ID:
+            input.form-control(id="cuID" type="text" value="{{invoice.clientId}}")
+          div.form-group
+            label(for="manager") Delivery Manager:
+            input.form-control(id="manager" type="text" value="{{invoice.manager}}")
+          div.form-group
+            label(for="desc") Description:
+            textarea.form-control(id="description" type="text" rows=3)
+              | {{invoice.description}}
+          div.form-group
+            label(for="invoiceAmount" style="padding-top: 7px") Invoice amount:
+            div.input-group.col-md-7.col-sm-4
+              span.input-group-addon $
+              input.form-control(type='text' value="{{invoice.amount}}")
+              span.input-group-addon .00
+      .modal-footer
+        button.btn.btn-default(type='button', ng-click='cancel()') Cancel
+        button.btn.btn-primary(type='button', ng-click='ok(invoice)') Save New
 
 
-   script(src="scripts/app.js")
-   script(src="scripts/controllers/main.js")
-   script(src="scripts/services/invoiceResource.js")
-   script(src="scripts/services/invoiceResourceMock.js")
-   //script(src="../common/services/common.services.js")
-   script(src="scripts/jquery.tablesorter.min.js")
+    script(type="text/ng-template" id="invoiceExistingModal.html")
+     .modal-header
+       button.close(type='button', data-dismiss='modal', aria-label='Close')
+         span(aria-hidden='true') &times;
+       h3#myModalLabel.modal-title {{invoice.invoiceName}}
+     .modal-body
+       form.form-vertical
+         div.form-group
+           label(for="projectDate") Date:
+           input.form-control(id="projectDate" type="date" value="{{invoice.invoiceDate}}")
+           // TODO- why is it not formatting existing dates as yyyy-MM-dd ?
+         div.form-group
+           label(for="cuName") CU Name:
+           input.form-control(id="cuName" type="text" value="{{invoice.clientName}}")
+         div.form-group
+           label(for="cuName") ID:
+           input.form-control(id="cuID" type="text" value="{{invoice.clientId}}")
+         div.form-group
+           label(for="manager") Delivery Manager:
+           input.form-control(id="manager" type="text" value="{{invoice.manager}}")
+         div.form-group
+           label(for="desc") Description:
+           textarea.form-control(id="description" type="text" rows=3)
+             | {{invoice.description}}
+         div.form-group
+           label(for="invoiceAmount" style="padding-top: 7px") Invoice amount:
+           div.input-group.col-md-7.col-sm-4
+             span.input-group-addon $
+             input.form-control(type='text' value="{{invoice.amount}}")
+             span.input-group-addon .00
+     .modal-footer
+       //button.btn.btn-default(type='button', data-dismiss='modal') X Delete
+       button.btn.btn-default(type='button', ng-click='cancel()') Close
+       button.btn.btn-primary(type='button', ng-click='ok(invoice)') Save changes
 
-   // All the JS is read from Jade as-is if you include a "script." prior
-   //
-   script.
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    script(src="https://code.jquery.com/jquery-2.1.4.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
+    script(src="bower_components/jquery/dist/jquery.js")
+    script(src="bower_components/angular/angular.js")
+    script(src="bower_components/bootstrap/dist/js/bootstrap.js")
+    script(src="bower_components/angular-animate/angular-animate.js")
+    script(src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js")
+    script(src="bower_components/angular-cookies/angular-cookies.js")
+    script(src="bower_components/angular-mocks/angular-mocks.js")
+    script(src="bower_components/angular-resource/angular-resource.js")
+    script(src="bower_components/angular-route/angular-route.js")
+    script(src="bower_components/angular-sanitize/angular-sanitize.js")
+    script(src="bower_components/angular-touch/angular-touch.js")
+    <!-- endbower -->
+    <!-- endbuild -->
+
+
+    script(src="scripts/app.js")
+    script(src="scripts/controllers/main.js")
+    script(src="scripts/controllers/invoiceCtrl.js")
+    script(src="scripts/services/invoiceExistingModalService.js")
+    script(src="scripts/services/invoiceResource.js")
+    script(src="scripts/services/invoiceResourceMock.js")
+    script(src="scripts/jquery.tablesorter.min.js")
+
+    // All the JS is read from Jade as-is if you include a "script." prior
+    //
+    script.
       // function to get current date
       Date.prototype.toDateInputValue = (function () {
          var local = new Date(this);

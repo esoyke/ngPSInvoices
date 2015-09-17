@@ -14,7 +14,7 @@
             {
                 "invoiceId": 1,
                 "invoiceName": "Schools Interface",
-                "invoiceDate": "6/25/2015",
+                "invoiceDate": "2015-01-04",
                 "description": "Interface to replace Evolve usage by front-end staff",
                 "clientId": 1283,
                 "clientName": "SFCU",
@@ -24,7 +24,7 @@
             {
                 "invoiceId": 2,
                 "invoiceName": "Plastics Enhancements",
-                "invoiceDate": "7/12/2015",
+                "invoiceDate": "2015-02-03",
                 "description": "Enhancements to the plastics low-stock notification processs",
                 "clientId": 1,
                 "clientName": "PSCU",
@@ -34,39 +34,39 @@
             {
                 "invoiceId": 3,
                 "invoiceName": "Project 003",
-                "invoiceDate": "6/25/2015",
+                "invoiceDate": "2015-03-13",
                 "description": "Some mock project description...",
                 "clientId": 1234,
                 "clientName": "GeneriCU",
-                "amount": 12000,
+                "amount": 15000,
                 "manager": "SKelley"
             },
             {
                 "invoiceId": 4,
                 "invoiceName": "Project 004",
-                "invoiceDate": "8/25/2015",
+                "invoiceDate": "2015-04-22",
                 "description": "Some mock project description...",
                 "clientId": 1234,
                 "clientName": "GeneriCU",
-                "amount": 12000,
+                "amount": 3000,
                 "manager": "DSoldwedel"
             },
             {
                 "invoiceId": 5,
                 "invoiceName": "Project 005",
-                "invoiceDate": "9/25/2015",
+                "invoiceDate": "2015-04-04",
                 "description": "Some mock project description...",
                 "clientId": 1234,
                 "clientName": "GeneriCU",
-                "amount": 12000,
+                "amount": 1500,
                 "manager": "SKelley"
             },
             {
                 "invoiceId": 6,
                 "invoiceName": "Project 006",
-                "invoiceDate": "10/25/2015",
+                "invoiceDate": "2015-05-11",
                 "description": "Some mock project description...",
-                "clientId": 1234,
+                "clientId": 24500,
                 "clientName": "GeneriCU",
                 "amount": 12000,
                 "manager": "DSoldwedel"
@@ -74,71 +74,71 @@
             {
                 "invoiceId": 7,
                 "invoiceName": "Project 007",
-                "invoiceDate": "11/25/2015",
+                "invoiceDate": "2015-05-09",
                 "description": "Some mock project description...",
                 "clientId": 1234,
                 "clientName": "GeneriCU",
-                "amount": 12000,
+                "amount": 6500,
                 "manager": "SKelley"
             },
             {
                 "invoiceId": 8,
                 "invoiceName": "Project 008",
-                "invoiceDate": "6/3/2015",
+                "invoiceDate": "2015-07-01",
                 "description": "Some mock project description...",
                 "clientId": 1234,
                 "clientName": "GeneriCU",
-                "amount": 12000,
+                "amount": 7000,
                 "manager": "DSoldwedel"
             },
             {
                 "invoiceId": 9,
                 "invoiceName": "Project 009",
-                "invoiceDate": "6/5/2015",
+                "invoiceDate": "2015-08-12",
                 "description": "Some mock project description...",
                 "clientId": 1234,
                 "clientName": "GeneriCU",
-                "amount": 12000,
+                "amount": 32000,
                 "manager": "SKelley"
             },
             {
                 "invoiceId": 10,
                 "invoiceName": "Project 010",
-                "invoiceDate": "6/7/2015",
+                "invoiceDate": "2015-09-14",
                 "description": "Some mock project description...",
                 "clientId": 1234,
                 "clientName": "GeneriCU",
-                "amount": 12000,
+                "amount": 4000,
                 "manager": "DSoldwedel"
             },
             {
                 "invoiceId": 11,
                 "invoiceName": "Project 011",
-                "invoiceDate": "6/8/2015",
+                "invoiceDate": "2015-09-08",
                 "description": "Some mock project description...",
                 "clientId": 1234,
                 "clientName": "GeneriCU",
-                "amount": 12000,
+                "amount": 35000,
                 "manager": "SKelley"
             },
             {
                 "invoiceId": 12,
                 "invoiceName": "Project 012",
-                "invoiceDate": "6/20/2015",
+                "invoiceDate": "2015-10-24",
                 "description": "Some mock project description...",
                 "clientId": 1234,
                 "clientName": "GeneriCU",
-                "amount": 12000,
+                "amount": 27500,
                 "manager": "DSoldwedel"
             },
             {
                 "invoiceId": 13,
                 "invoiceName": "Project 013",
-                "invoiceDate": "6/22/2015",
+                "invoiceDate": "2015-10-31",
                 "description": "Some mock project description...",
                 "clientId": 1234,
                 "clientName": "GeneriCU",
-                "amount": 12000,
+                "amount": 6800,
                 "manager": "SKelley"
             }
         ];
