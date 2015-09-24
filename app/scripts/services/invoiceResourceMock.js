@@ -185,6 +185,13 @@
             return [200, invoice, {}];
         });
 
+        // simple example
+        //$httpBackend.when('GET', 'views/blah.html').respond("<h1>BLAH</h1>");
+
+        // Pass through templates and views (remember this is a regex)
+        $httpBackend.whenGET(/^\/templates\//).passThrough();
+        $httpBackend.whenGET(/^\/views\//).passThrough();
+
         // Pass through any requests for application files
         $httpBackend.whenGET(/app/).passThrough();
 

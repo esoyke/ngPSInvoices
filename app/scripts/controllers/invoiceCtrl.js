@@ -12,6 +12,11 @@
  */
 angular.module('ngPsinvoicesApp').controller('InvoiceCtrl', function ($scope, $modalInstance, invoice) {
 
+    function InvoiceCtrl ($scope) {
+        console.log('InvoiceCtrl');
+    };
+
+
     $scope.invoice = invoice;
 
     $scope.ok = function (item) {

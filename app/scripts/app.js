@@ -20,7 +20,6 @@
         'ngTouch',
         'invoiceResourceMock',
         'ui.bootstrap' //using this for modal
-        //'invoiceExistingModalService'
       ])
       .config(function ($routeProvider) {
         $routeProvider
@@ -33,6 +32,11 @@
               templateUrl: 'views/about.html',
               controller: 'AboutCtrl',
               controllerAs: 'about'
+            })
+            .when('/views/blah.html', {
+                templateUrl: 'views/blah.html',
+                controller: 'AboutCtrl',
+                controllerAs: 'about'
             })
             .otherwise({
               redirectTo: '/'

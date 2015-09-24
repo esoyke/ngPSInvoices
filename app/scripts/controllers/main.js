@@ -32,9 +32,9 @@
    * Controller of the ngPsinvoicesApp
    */
   angular.module('ngPsinvoicesApp')
-      .controller('MainCtrl', ['invoiceResource', '$modal',//'invoiceExistingModalService',
+      .controller('MainCtrl', ['invoiceResource', '$modal',
 
-  function (invoiceResource, $modal){ //}, invoiceExistingModalService) {
+  function (invoiceResource, $modal){
 
     var main = this;
     invoiceResource.query(function (data) {
@@ -44,8 +44,7 @@
     main.existingInvoiceModal = function(invoice) {
       console.log('opening modal for invoice '+invoice.invoiceId);
       $modal.open({
-        templateUrl: 'invoiceExistingModal.html',
-        //templateUrl: 'views/invoiceExisting.html',
+        templateUrl: '/templates/invoiceExisting.html',
         controller: 'InvoiceCtrl',
         size: 'lg',
         resolve: {
@@ -59,8 +58,7 @@
     main.newInvoiceModal = function(invoice) {
       console.log('opening modal for new invoice');
       $modal.open({
-        templateUrl: 'invoiceNewModal.html',
-        //templateUrl: 'views/invoiceExisting.html',
+        templateUrl: '/templates/invoiceNew.html',
         controller: 'InvoiceCtrl',
         size: 'lg',
         resolve: {

@@ -1,9 +1,6 @@
 //
-   Created by esoyke on 9/12/15.
-//
    Created by esoyke on 9/4/15.
    Simple mockup of branded invoice creator
-   Just using hard-coded mock data, would convert to use Angular most likely.
 doctype
 html
    head
@@ -13,7 +10,12 @@ html
 
 body(ng-app="ngPsinvoicesApp" ng-controller="MainCtrl as main")
     h2 Professional Services Invoices
-    //button.btn.btn-default.btn-lg(id="btnInvoice" type='button' data-toggle="modal" data-target="#modalNewInvoice")
+
+    // example of embedding ngIncludes, be sure to include routes for passthrough in the mock backend (invoiceResourceMock)
+    //div.container
+      div(data-ng-include data-src="'/views/blah.html'")
+      div(data-ng-include data-src="'/templates/bar.html'")
+
     button.btn.btn-default.btn-lg(id="btnInvoice" type='button' ng-click="main.newInvoiceModal()")
       span.glyphicon.glyphicon-plus(aria-hidden='true')
       |  New Invoice
@@ -41,128 +43,8 @@ body(ng-app="ngPsinvoicesApp" ng-controller="MainCtrl as main")
                   button.btnDelete(data-toggle="modal" data-target="#modalConfirmDelete")
 
 
-         //
-               tr.tr(data-toggle="modal" data-target="#modalExistingInvoice")
-                  td 3/5/2015
-                  td SFCU
-                  td Schools Interface
-                  td SKelley
-                  td.centered
-                     button.btnDelete(data-toggle="modal" data-target="#modalConfirmDelete")
-               tr.tr(data-toggle="modal" data-target="#modalExistingInvoice")
-                  td 5/22/2015
-                  td VACU
-                  td Interface enhancements
-                  td DSoldwedel
-                  td.centered
-                     button.btnDelete(data-toggle="modal" data-target="#modalConfirmDelete")
-               tr.tr(data-toggle="modal" data-target="#modalExistingInvoice")
-                  td 7/15/2015
-                  td PSCU
-                  td Plastics inventory enhancements
-                  td DSoldwedel
-                  td.centered
-                     button.btnDelete(data-toggle="modal" data-target="#modalConfirmDelete")
-               tr.tr(data-toggle="modal" data-target="#modalExistingInvoice")
-                  td 6/15/2015
-                  td CEFCU
-                  td Monetize Alerts
-                  td SKelley
-                  td.centered
-                     button.btnDelete(data-toggle="modal" data-target="#modalConfirmDelete")
-               tr.tr(data-toggle="modal" data-target="#modalExistingInvoice")
-                  td 8/15/2015
-                  td PSCU
-                  td MYMM Billing
-                  td DSoldwedel
-                  td.centered
-                     button.btnDelete(data-toggle="modal" data-target="#modalConfirmDelete")
-               tr.tr(data-toggle="modal" data-target="#modalExistingInvoice")
-                  td 7/27/2015
-                  td PSCU
-                  td Billpay service conversion
-                  td DSoldwedel
-                  td.centered
-                     button.btnDelete(data-toggle="modal" data-target="#modalConfirmDelete")
 
-
-
-    #modalNewInvoice.modalInvoice.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
-      .modal-dialog(role='document')
-         .modal-content
-            .modal-header
-               button.close(type='button', data-dismiss='modal', aria-label='Close')
-                  span(aria-hidden='true') &times;
-               //h4#myModalLabel.modal-title New Invoice
-               h3.modal-title New Invoice
-            .modal-body
-               form.form-vertical
-                  div.form-group
-                     label(for="projectName") Project:
-                     input.form-control(id="projectName" type="text")
-                  div.form-group
-                     label(for="projectDate") Date:
-                     input.form-control(id="projectDate" type="date")
-                  div.form-group
-                     label(for="cuName") CU Name:
-                     input.form-control(id="cuName" type="text")
-                  div.form-group
-                     label(for="cuName") ID:
-                     input.form-control(id="cuID" type="text")
-                  div.form-group
-                     label(for="manager") Delivery Manager:
-                     input.form-control(id="manager" type="text")
-                  div.form-group
-                     label(for="desc") Description:
-                     textarea.form-control(id="descent" type="text" rows=2)
-                  div.form-group
-                     label(for="invoiceAmount" style="padding-top: 7px") Invoice amount:
-                     div.input-group.col-md-7.col-sm-4
-                        span.input-group-addon $
-                        input.form-control(type='text')
-                        span.input-group-addon .00
-            .modal-footer
-               button.btn.btn-default(type='button', data-dismiss='modal') Close
-               button.btn.btn-primary(type='button') Save
-
-
-    #modalExistingInvoice.modalInvoice.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
-      .modal-dialog(role='document')
-         .modal-content
-            .modal-header
-               button.close(type='button', data-dismiss='modal', aria-label='Close')
-                  span(aria-hidden='true') &times;
-               h3#myModalLabel.modal-title Schools Interface
-            .modal-body
-               form.form-vertical
-                  div.form-group
-                     label(for="projectDate") Date:
-                     input.form-control(id="projectDate" type="date" value="2015-03-15")
-                  div.form-group
-                     label(for="cuName") CU Name:
-                     input.form-control(id="cuName" type="text" value="SFCU")
-                  div.form-group
-                     label(for="cuName") ID:
-                     input.form-control(id="cuID" type="text" value="1283")
-                  div.form-group
-                     label(for="manager") Delivery Manager:
-                     input.form-control(id="manager" type="text" value="SKelley")
-                  div.form-group
-                     label(for="desc") Description:
-                     textarea.form-control(id="descent" type="text" rows=3 value="Blah blah foo bar")
-                        | Create custom interface to FDR via Data Exchange to replace Evolve usage for tellers
-                  div.form-group
-                     label(for="invoiceAmount" style="padding-top: 7px") Invoice amount:
-                     div.input-group.col-md-7.col-sm-4
-                        span.input-group-addon $
-                        input.form-control(type='text' value="12,000")
-                        span.input-group-addon .00
-            .modal-footer
-               //button.btn.btn-default(type='button', data-dismiss='modal') X Delete
-               button.btn.btn-default(type='button', data-dismiss='modal') Close
-               button.btn.btn-primary(type='button') Save changes
-
-
+    // TODO- pass object to modal to include project name in warning confirmation
     #modalConfirmDelete.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
       .modal-dialog(role='document')
          .modal-content
@@ -176,79 +58,15 @@ body(ng-app="ngPsinvoicesApp" ng-controller="MainCtrl as main")
                button.btn.btn-default(type='button', data-dismiss='modal') Nevermind
                button.btn.btn-danger(type='submit') Delete
 
-
-    script(type="text/ng-template" id="invoiceNewModal.html")
+    // I moved these modal ngTemplates to individual files in /templates
+    //script(type="text/ng-template" id="invoiceNew.html")
       .modal-header
-        button.close(type='button', data-dismiss='modal', aria-label='Close')
-          span(aria-hidden='true') &times;
-        h3#myModalLabel.modal-title New Invoice (Unsaved)
-      .modal-body
-        form.form-vertical
-          div.form-group
-            label(for="projectName") Project:
-            input.form-control(id="projectName" type="text")
-          div.form-group
-            label(for="projectDate") Date:
-            input.form-control(id="projectDate" type="date" value="{{invoice.invoiceDate}}")
-            // TODO- why is it not formatting existing dates as yyyy-MM-dd ?
-          div.form-group
-            label(for="cuName") CU Name:
-            input.form-control(id="cuName" type="text" value="{{invoice.clientName}}")
-          div.form-group
-            label(for="cuName") ID:
-            input.form-control(id="cuID" type="text" value="{{invoice.clientId}}")
-          div.form-group
-            label(for="manager") Delivery Manager:
-            input.form-control(id="manager" type="text" value="{{invoice.manager}}")
-          div.form-group
-            label(for="desc") Description:
-            textarea.form-control(id="description" type="text" rows=3)
-              | {{invoice.description}}
-          div.form-group
-            label(for="invoiceAmount" style="padding-top: 7px") Invoice amount:
-            div.input-group.col-md-7.col-sm-4
-              span.input-group-addon $
-              input.form-control(type='text' value="{{invoice.amount}}")
-              span.input-group-addon .00
-      .modal-footer
-        button.btn.btn-default(type='button', ng-click='cancel()') Cancel
-        button.btn.btn-primary(type='button', ng-click='ok(invoice)') Save New
+        blah....
 
 
-    script(type="text/ng-template" id="invoiceExistingModal.html")
+    //script(type="text/ng-template" id="invoiceExistingModal.html")
      .modal-header
-       button.close(type='button', data-dismiss='modal', aria-label='Close')
-         span(aria-hidden='true') &times;
-       h3#myModalLabel.modal-title {{invoice.invoiceName}}
-     .modal-body
-       form.form-vertical
-         div.form-group
-           label(for="projectDate") Date:
-           input.form-control(id="projectDate" type="date" value="{{invoice.invoiceDate}}")
-           // TODO- why is it not formatting existing dates as yyyy-MM-dd ?
-         div.form-group
-           label(for="cuName") CU Name:
-           input.form-control(id="cuName" type="text" value="{{invoice.clientName}}")
-         div.form-group
-           label(for="cuName") ID:
-           input.form-control(id="cuID" type="text" value="{{invoice.clientId}}")
-         div.form-group
-           label(for="manager") Delivery Manager:
-           input.form-control(id="manager" type="text" value="{{invoice.manager}}")
-         div.form-group
-           label(for="desc") Description:
-           textarea.form-control(id="description" type="text" rows=3)
-             | {{invoice.description}}
-         div.form-group
-           label(for="invoiceAmount" style="padding-top: 7px") Invoice amount:
-           div.input-group.col-md-7.col-sm-4
-             span.input-group-addon $
-             input.form-control(type='text' value="{{invoice.amount}}")
-             span.input-group-addon .00
-     .modal-footer
-       //button.btn.btn-default(type='button', data-dismiss='modal') X Delete
-       button.btn.btn-default(type='button', ng-click='cancel()') Close
-       button.btn.btn-primary(type='button', ng-click='ok(invoice)') Save changes
+       blah...
 
 
     <!-- build:js(.) scripts/vendor.js -->
