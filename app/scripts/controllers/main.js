@@ -42,7 +42,6 @@
     });
 
     main.existingInvoiceModal = function(invoice) {
-      console.log('opening modal for invoice '+invoice.invoiceId);
       $modal.open({
         templateUrl: '/templates/invoiceExisting.html',
         controller: 'InvoiceCtrl',
@@ -56,11 +55,24 @@
     };
 
     main.newInvoiceModal = function(invoice) {
-      console.log('opening modal for new invoice');
       $modal.open({
         templateUrl: '/templates/invoiceNew.html',
         controller: 'InvoiceCtrl',
         size: 'lg',
+        resolve: {
+          invoice: function () {
+            return invoice;
+          }
+        }
+      });
+    };
+
+    main.deleteInvoiceModal = function(invoice) {
+      console.log('opening modal for invoice '+invoice.invoiceId);
+      $modal.open({
+        templateUrl: '/templates/invoiceDelete.html',
+        controller: 'InvoiceCtrl',
+        size: 'md',
         resolve: {
           invoice: function () {
             return invoice;

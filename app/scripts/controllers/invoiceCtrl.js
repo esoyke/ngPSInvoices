@@ -32,4 +32,10 @@ angular.module('ngPsinvoicesApp').controller('InvoiceCtrl', function ($scope, $m
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
+
+    $scope.delete = function (item) {
+        console.log('deleting invoice "'+item.invoiceName+'"');
+        //TODO- delete
+        $modalInstance.close();
+    };
 });

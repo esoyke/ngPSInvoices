@@ -36,27 +36,14 @@ body(ng-app="ngPsinvoicesApp" ng-controller="MainCtrl as main")
               tr(ng-repeat="invoice in main.invoices")
                 td(ng-click="main.existingInvoiceModal(invoice)") {{invoice.invoiceDate}}
                 td(ng-click="main.existingInvoiceModal(invoice)") {{invoice.clientName}}
+                // example of toggling modal via data-target
                 //td(data-toggle="modal" data-target="#modalExistingInvoice") {{invoice.invoiceName}}
                 td(ng-click="main.existingInvoiceModal(invoice)") {{invoice.invoiceName}}
                 td(ng-click="main.existingInvoiceModal(invoice)") {{invoice.manager}}
                 td.centered
-                  button.btnDelete(data-toggle="modal" data-target="#modalConfirmDelete")
+                  button.btnDelete(ng-click="main.deleteInvoiceModal(invoice)")
+                  //button.btnDelete(data-toggle="modal" data-target="#modalConfirmDelete")
 
-
-
-    // TODO- pass object to modal to include project name in warning confirmation
-    #modalConfirmDelete.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
-      .modal-dialog(role='document')
-         .modal-content
-            .modal-header
-               button.close(type='button', data-dismiss='modal', aria-label='Close')
-                  span(aria-hidden='true') &times;
-               h4#myModalLabel.modal-title Delete - Schools Interface
-            .modal-body
-               h3 Are you sure?
-            .modal-footer
-               button.btn.btn-default(type='button', data-dismiss='modal') Nevermind
-               button.btn.btn-danger(type='submit') Delete
 
     // I moved these modal ngTemplates to individual files in /templates
     //script(type="text/ng-template" id="invoiceNew.html")

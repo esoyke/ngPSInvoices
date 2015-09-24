@@ -1,0 +1,28 @@
+//
+   Created by esoyke on 9/24/15.
+
+div(data-ng-controller="MainCtrl")
+
+       .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+             span(aria-hidden='true') &times;
+          h4#myModalLabel.modal-title Delete - {{invoice.invoiceName}}
+       .modal-body
+          h3(style= "text-align: center") Are you sure?
+       .modal-footer
+          button.btn.btn-default(type='button', ng-click='cancel()') Cancel
+          button.btn.btn-danger(type='button', ng-click='delete(invoice)') Delete
+
+
+//div(data-ng-controller="MainCtrl")
+  .modal-dialog(role='document')
+    .modal-content
+       .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+             span(aria-hidden='true') &times;
+          h4#myModalLabel.modal-title Delete - {{invoice.invoiceName}}
+       .modal-body
+          h3 Are you sure?
+       .modal-footer
+          button.btn.btn-default(type='button', data-dismiss='modal') Cancel
+          button.btn.btn-danger(type='submit') Delete
